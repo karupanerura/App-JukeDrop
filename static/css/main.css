@@ -14,3 +14,42 @@ footer {
 /* smart phones */
 @media screen and (max-device-width: 480px) {
 }
+
+.nav > li > button {
+  position: relative;
+  display: block;
+  padding: 10px 15px;
+}
+
+.nav > li > button:hover,
+.nav > li > button:focus {
+  text-decoration: none;
+  background-color: #eeeeee;
+}
+
+.nav > li.disabled > button {
+  color: #999999;
+}
+
+.nav > li.disabled > button:hover,
+.nav > li.disabled > button:focus {
+  color: #999999;
+  text-decoration: none;
+  cursor: not-allowed;
+  background-color: transparent;
+}
+
+.nav .open > button,
+.nav .open > button:hover,
+.nav .open > button:focus {
+  background-color: #eeeeee;
+  border-color: #428bca;
+}
+
+.nav .open > button .caret,
+.nav .open > button:hover .caret,
+.nav .open > button:focus .caret {
+  border-top-color: #2a6496;
+  border-bottom-color: #2a6496;
+}
+

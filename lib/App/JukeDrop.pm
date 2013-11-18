@@ -4,30 +4,25 @@ use warnings;
 use utf8;
 our $VERSION='0.01';
 use 5.008001;
-use App::JukeDrop::DB::Schema;
-use App::JukeDrop::DB;
+
+use AnyEvent::DBI;
+use Class::Data::Lazy qw/dbh/;
 
 use parent qw/Amon2/;
 # Enable project local mode.
 __PACKAGE__->make_local_context();
 
-my $schema = App::JukeDrop::DB::Schema->instance;
+my $noop = sub {};
+sub _build_dbh {
+    my $class = shift;
 
-sub db {
-    my $c = shift;
-    if (!exists $c->{db}) {
-        my $conf = $c->config->{DBI}
-            or die "Missing configuration about DBI";
-        $c->{db} = App::JukeDrop::DB->new(
-            schema       => $schema,
-            connect_info => [@$conf],
-            # I suggest to enable following lines if you are using mysql.
-            # on_connect_do => [
-            #     'SET SESSION sql_mode=STRICT_TRANS_TABLES;',
-            # ],
-        );
-    }
-    $c->{db};
+    my $conf = $class->config->{DBI}
+        or die "Missing configuration about DBI";
+
+    my $dbh = AnyEvent::DBI->new(@$conf);
+    $dbh->exec('SET NAMES utf8mb4', $noop);
+    $dbh->exec('SET SESSION sql_mode=STRICT_TRANS_TABLES', $noop);
+    return $dbh;
 }
 
 1;

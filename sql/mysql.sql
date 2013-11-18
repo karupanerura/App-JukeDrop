@@ -1,4 +1,5 @@
-CREATE TABLE IF NOT EXISTS member (
-    id           INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    name         VARCHAR(255)
+CREATE TABLE IF NOT EXISTS user (
+    id        INTEGER                      NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    uid       VARCHAR(255) CHARSET ascii   NOT NULL,
+    UNIQUE INDEX (uid)
 );

@@ -46,7 +46,7 @@ sub _session {
     if (!exists $self->{session}) {
         $self->{session} = HTTP::Session2::ClientStore->new(
             env => $self->req->env,
-            secret => 'etH8ACK4IMmVmSVwOVEP4WbYNolLc1CN',
+            secret => 'vmzZavMuayEs4AycxdKwMIWv7F95Cjga',
         );
     }
     return $self->{session};

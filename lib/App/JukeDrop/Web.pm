@@ -5,6 +5,9 @@ use utf8;
 use parent qw/App::JukeDrop Amon2::Web/;
 use File::Spec;
 
+use App::JukeDrop::Web::Request;
+sub create_request { App::JukeDrop::Web::Request->new($_[1], __PACKAGE__) }
+
 # dispatcher
 use App::JukeDrop::Web::Dispatcher;
 sub dispatch {
@@ -14,19 +17,17 @@ sub dispatch {
 # load plugins
 __PACKAGE__->load_plugins(
     'Web::FillInFormLite',
+    'Web::CSRFDefender',
     'Web::JSON',
+    'Web::Streaming',
     '+App::JukeDrop::Web::Plugin::Session',
 );
 
 # setup view
 use App::JukeDrop::Web::View;
 {
-    sub create_view {
-        my $view = App::JukeDrop::Web::View->make_instance(__PACKAGE__);
-        no warnings 'redefine';
-        *App::JukeDrop::Web::create_view = sub { $view }; # Class cache.
-        $view
-    }
+    my $view = App::JukeDrop::Web::View->make_instance(__PACKAGE__);
+    sub create_view { $view } # Class cache.
 }
 
 # for your security
