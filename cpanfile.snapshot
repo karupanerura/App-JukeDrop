@@ -268,6 +268,21 @@ DISTRIBUTIONS
       Test::More 0.47
       Tie::Hash 0
       perl 5.006
+  DBD-mysql-4.025
+    pathname: C/CA/CAPTTOFU/DBD-mysql-4.025.tar.gz
+    provides:
+      Bundle::DBD::mysql 4.025
+      DBD::mysql 4.025
+      DBD::mysql::GetInfo undef
+      DBD::mysql::db 4.025
+      DBD::mysql::dr 4.025
+      DBD::mysql::st 4.025
+    requirements:
+      DBI 1.08
+      Data::Dumper 0
+      Test::Deep 0
+      Test::More 0
+      perl 5.008001
   DBI-1.630
     pathname: T/TI/TIMB/DBI-1.630.tar.gz
     provides:
@@ -441,6 +456,24 @@ DISTRIBUTIONS
       Class::Accessor::Lite 0.05
       ExtUtils::MakeMaker 6.42
       Test::More 0.96
+      perl 5.008001
+  Data-Validator-1.03
+    pathname: G/GF/GFUJI/Data-Validator-1.03.tar.gz
+    provides:
+      Data::Validator 1.03
+      Data::Validator::Role::AllowExtra undef
+      Data::Validator::Role::Croak undef
+      Data::Validator::Role::Method undef
+      Data::Validator::Role::NoRestricted undef
+      Data::Validator::Role::NoThrow undef
+      Data::Validator::Role::Sequenced undef
+      Data::Validator::Role::StrictSequenced undef
+    requirements:
+      CPAN::Meta 0
+      CPAN::Meta::Prereqs 0
+      ExtUtils::MakeMaker 6.59
+      Module::Build 0.38
+      Mouse 0.93
       perl 5.008001
   Devel-StackTrace-1.30
     pathname: D/DR/DROLSKY/Devel-StackTrace-1.30.tar.gz
@@ -1314,21 +1347,6 @@ DISTRIBUTIONS
       Scope::Guard 0
       Test::TCP 2.00
       perl 5.008
-  Starlet-0.20
-    pathname: K/KA/KAZUHO/Starlet-0.20.tar.gz
-    provides:
-      Plack::Handler::Starlet undef
-      Starlet 0.20
-      Starlet::Server undef
-    requirements:
-      ExtUtils::MakeMaker 6.42
-      LWP::UserAgent 5.8
-      Parallel::Prefork 0.13
-      Plack 0.992
-      Server::Starter 0.06
-      Test::More 0.88
-      Test::TCP 0.15
-      perl 5.008001
   Stream-Buffered-0.02
     pathname: D/DO/DOY/Stream-Buffered-0.02.tar.gz
     provides:

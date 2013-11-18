@@ -36,7 +36,7 @@
                 <div class="nav-collapse collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="/">Home</a></li>
-                        <li><a href="/login">Login</a></li>
+                        <li><a href="#">Link</a></li>
                         <li><a href="#">Link</a></li>
                         <li><a href="#">Link</a></li>
                     </ul>
@@ -64,10 +64,12 @@
           </ul>
           <form method="POST">
             <ul class="nav navbar-nav navbar-right">
+              : my $uri    = c().req().base();
+              : my $scheme = $uri.scheme('https');
               <: if (c().session().get('user_id')) { :>
-              <li><button fromaction="/logout">Logout</button></li>
+              <li><button fromaction="<: $uri.as_string() :>logout">Logout</button></li>
               <: } else { :>
-              <li><button formaction="/login">Login</button></li>
+              <li><button formaction="<: $uri.as_string() :>login">Login</button></li>
               <: } :>
             </ul>
           </form>

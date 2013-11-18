@@ -56,7 +56,7 @@ unless (caller) {
 
     print "App::JukeDrop: http://${host}:${port}/\n";
 
-    my $loader = Plack::Loader->load('Starlet',
+    my $loader = Plack::Loader->load('Twiggy::Prefork',
         port        => $port,
         host        => $host,
         max_workers => $max_workers,
